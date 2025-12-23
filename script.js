@@ -25,3 +25,4 @@ if (score >= 70) {
   statusCell.innerText = "Rejected";
   statusCell.classList.add("rejected");
 }
+
