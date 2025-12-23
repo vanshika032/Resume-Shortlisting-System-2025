@@ -12,9 +12,16 @@ document.getElementById("resumeForm").addEventListener("submit", function (e) {
     // Fake result logic (demo)
     let score = Math.floor(Math.random() * 40) + 60;
 
-    alert(
-        "Resume Uploaded Successfully!\n\n" +
-        "Match Score: " + score + "%\n" +
-        (score >= 70 ? "Status: Shortlisted ✅" : "Status: Not Shortlisted ❌")
-    );
-});
+   let table = document.getElementById("resultTable");
+let row = table.insertRow();
+
+row.insertCell(0).innerText = score + "%";
+
+let statusCell = row.insertCell(1);
+if (score >= 70) {
+  statusCell.innerText = "Selected";
+  statusCell.classList.add("selected");
+} else {
+  statusCell.innerText = "Rejected";
+  statusCell.classList.add("rejected");
+}
